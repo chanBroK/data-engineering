@@ -1,7 +1,5 @@
 package com.khc.kmooc.data_engineering.week3;
 
-import com.khc.kmooc.data_engineering.Email;
-
 import java.util.ArrayList;
 
 public class ArrayListExample1 {

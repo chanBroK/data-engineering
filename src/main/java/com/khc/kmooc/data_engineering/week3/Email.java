@@ -1,4 +1,4 @@
-package com.khc.kmooc.data_engineering;
+package com.khc.kmooc.data_engineering.week3;
 
 public class Email {
     public int from;
