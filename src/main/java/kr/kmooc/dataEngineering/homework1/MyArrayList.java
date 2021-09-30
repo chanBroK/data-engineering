@@ -1,4 +1,4 @@
-package com.khc.kmooc.data_engineering.homework;
+package kr.kmooc.dataEngineering.homework1;
 
 import java.lang.reflect.Array;
 import java.util.Collection;
@@ -44,7 +44,7 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return new MyArrayListListIterator<E>(data, 0);
+        return new MyArrayListIterator<>(this.data);
     }
 
     @Override

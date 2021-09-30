@@ -44,7 +44,7 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return new MyArrayListListIterator<E>(data, 0);
+        return new MyArrayListIterator<>(this.data);
     }
 
     @Override
@@ -185,7 +185,7 @@ public class MyArrayList<E> implements List<E> {
 
     @Override
     public int lastIndexOf(Object o) {
-        for (int i = this.data.length - 1; i >= 0; i++) {
+        for (int i = this.data.length - 1; i >= 0; i--) {
             if (this.data[i].equals(o)) {
                 return i;
             }

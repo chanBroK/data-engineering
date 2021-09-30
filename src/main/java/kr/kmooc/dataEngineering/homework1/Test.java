@@ -1,4 +1,4 @@
-package com.khc.kmooc.data_engineering.homework;
+package kr.kmooc.dataEngineering.homework1;
 
 import java.util.*;
 
