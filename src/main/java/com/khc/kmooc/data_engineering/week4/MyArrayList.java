@@ -143,7 +143,7 @@ public class MyArrayList<E> implements List<E> {
     @Override
     public void add(int index, E element) {
         if (index > this.data.length || index < 0) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index" + index + "out of bounds for length" + this.data.length);
         }
         Object[] newData = new Object[this.data.length + 1];
         for (int i = 0; i < index; i++) {
