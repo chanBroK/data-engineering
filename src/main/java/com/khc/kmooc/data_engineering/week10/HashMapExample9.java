@@ -1,5 +1,4 @@
-package com.khc.kmooc.data_engineering.week9;
-
+package com.khc.kmooc.data_engineering.week10;
 
 import com.khc.kmooc.data_engineering.week1.Email;
 
@@ -7,10 +6,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class HashSetExample9 {
+public class HashMapExample9 {
     public static List<Email> getArrayListData() throws IOException {
         List<Email> data = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader("D:\\project\\personal\\data-engineering\\email.txt"));
@@ -31,25 +31,23 @@ public class HashSetExample9 {
         return data;
     }
 
-
     public static void main(String[] args) throws IOException {
-        List<Email> emailList = getArrayListData();
-//        HashSet<Occurrence> occSet = new HashSet<>();
-        ArrayList<HashSet<Integer>> receivers = new ArrayList<>();
-
-        for (int i = 0; i < 265214; i++) {
-            receivers.add(new HashSet<Integer>());
+        List<Email> data = getArrayListData();
+        HashMap<Integer, Integer> occurrence = new HashMap<>();
+        for (Email email : data) {
+            if (occurrence.containsKey(email.from)) {
+                occurrence.put(email.from, occurrence.get(email.from) + 1);
+            } else {
+                occurrence.put(email.from, 1);
+            }
+            if (occurrence.containsKey(email.to)) {
+                occurrence.put(email.to, occurrence.get(email.to) + 1);
+            } else {
+                occurrence.put(email.to, 1);
+            }
         }
-        for (Email email : emailList) {
-            // 예제 8과 같은 이유로 hashset만으로는 해결이 불가능
-            // receivers의 from index의 HashSet에 to를 추가
-            HashSet<Integer> cur = receivers.get(email.from);
-            cur.add(email.to);
-            receivers.set(email.from, cur);
-
-        }
-        for (int i = 0; i < receivers.size(); i++) {
-            System.out.println(i + " : " + receivers.get(i));
+        for (Map.Entry<Integer, Integer> entry : occurrence.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.khc.kmooc.data_engineering.week2;
 
+import com.khc.kmooc.data_engineering.week1.Email;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashSet;

@@ -1,5 +1,7 @@
 package com.khc.kmooc.data_engineering.week1;
 
+import java.util.Objects;
+
 public class Email {
     public int from;
     public int to;
@@ -14,12 +16,16 @@ public class Email {
         return from + "->" + to;
     }
 
-
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Email email = (Email) o;
         return this.from == email.from && this.to == email.to;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(from, to);
+        // return from + to;
     }
 }
